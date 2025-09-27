@@ -1,0 +1,186 @@
+/* UserDashboard.css */
+.user-dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #3a36e0;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #3a36e0, #5c59ff);
+  border-radius: 4px;
+}
+
+h2 {
+  color: #444;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+/* Apply button styling */
+a[href="/apply"] {
+  display: inline-block;
+  background: linear-gradient(135deg, #3a36e0, #5c59ff);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(58, 54, 224, 0.2);
+}
+
+a[href="/apply"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(58, 54, 224, 0.3);
+  background: linear-gradient(135deg, #4a46ff, #6c69ff);
+}
+
+a[href="/apply"]:active {
+  transform: translateY(-1px);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background: linear-gradient(135deg, #3a36e0, #5c59ff);
+  color: white;
+}
+
+th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #444;
+  transition: all 0.3s ease;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f0f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Status styling */
+td:last-child {
+  font-weight: 600;
+}
+
+td:last-child:contains("Approved") {
+  color: #28a745;
+}
+
+td:last-child:contains("Pending") {
+  color: #ffc107;
+}
+
+td:last-child:contains("Rejected") {
+  color: #dc3545;
+}
+
+td:last-child:contains("Processing") {
+  color: #17a2b8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-dashboard-container {
+    padding: 1.5rem;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  th, td {
+    padding: 0.8rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation for data loading */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+tbody tr:nth-child(1) { animation-delay: 0.1s; }
+tbody tr:nth-child(2) { animation-delay: 0.2s; }
+tbody tr:nth-child(3) { animation-delay: 0.3s; }
+tbody tr:nth-child(4) { animation-delay: 0.4s; }
+tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Empty state styling */
+tr td[colspan="5"] {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #777;
+  font-style: italic;
+}

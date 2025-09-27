@@ -1,0 +1,259 @@
+/* Application.css */
+:root {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --secondary: #0f172a;
+  --accent: #e11d48;
+  --background: #f8fafc;
+  --card: #ffffff;
+  --text: #1e293b;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --border-focus: #bfdbfe;
+  --success: #10b981;
+  --error: #ef4444;
+}
+
+body {
+  background-color: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.application-container {
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: var(--card);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.application-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.application-container h1 {
+  text-align: center;
+  color: var(--secondary);
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: -0.5px;
+}
+
+.form-group {
+  margin-bottom: 28px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: var(--background);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 4px var(--border-focus);
+}
+
+.form-control:hover:not(:focus) {
+  border-color: var(--primary-light);
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' fill='none'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 1 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  padding-right: 48px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.passport-type-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.passport-option {
+  position: relative;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.passport-option:hover {
+  border-color: var(--primary-light);
+}
+
+.passport-option.selected {
+  border-color: var(--primary);
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+.passport-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.passport-option-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: var(--secondary);
+}
+
+.passport-option-description {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.passport-option .check-mark {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.passport-option.selected .check-mark {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.passport-option.selected .check-mark::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-left: 6px;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .application-container {
+    margin: 20px;
+    padding: 30px 20px;
+    border-radius: 12px;
+  }
+  
+  .passport-type-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.application-container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Optional: Add this notification styling for displaying success/error messages */
+.notification {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.notification-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid var(--success);
+  color: var(--success);
+}
+
+.notification-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid var(--error);
+  color: var(--error);
+}
+
+.notification-icon {
+  margin-right: 12px;
+}
